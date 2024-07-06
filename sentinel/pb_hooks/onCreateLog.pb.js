@@ -14,7 +14,7 @@ onRecordAfterCreateRequest(({ record }) => {
     yearRecord = new Record(
       $app.dao().findCollectionByNameOrId('years'),
       {
-        id: `${year}`,
+        id: `${year}`,  
         total_logs: 0,
         mean_temperature: 0,
         mean_humidity: 0
