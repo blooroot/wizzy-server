@@ -11,7 +11,7 @@ onRecordAfterCreateRequest(({ record }) => {
 
   const yearRecord = $app.dao().findRecordById('years', `${year}`)
   const yearNewTotalLogs = yearRecord.get('total_logs') + 1
-  yearRecord.set('total_logs', 
+  yearRecord.set('total_logs',
     yearNewTotalLogs
   )
   yearRecord.set('mean_temperature', 
@@ -21,9 +21,7 @@ onRecordAfterCreateRequest(({ record }) => {
     (yearRecord.get('mean_humidity') + humidity) / yearNewTotalLogs
   )
 
-  const monthRecord = $app.dao().findFirstRecordByFilter('months', 
-    `year = "${year}" && month = "${month}"`
-  )
+  const monthRecord = $app.dao().findRecordById('months', `${month}-${year}`)
   const monthNewTotalLogs = monthRecord.get('total_logs') + 1
   monthRecord.set('total_logs', 
     monthNewTotalLogs
@@ -35,9 +33,7 @@ onRecordAfterCreateRequest(({ record }) => {
     (monthRecord.get('mean_humidity') + humidity) / monthNewTotalLogs
   )
 
-  const dayRecord = $app.dao().findFirstRecordByFilter('days', 
-    `month = "${monthRecord.get('id')}" && day = "${day}"`
-  )
+  const dayRecord = $app.dao().findFirstRecordById('days', `${day}-${month}-${year}`)
   const dayNewTotalLogs = dayRecord.get('total_logs') + 1
   dayRecord.set('total_logs', 
     dayNewTotalLogs
