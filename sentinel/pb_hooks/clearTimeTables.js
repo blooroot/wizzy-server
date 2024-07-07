@@ -1,7 +1,7 @@
 /// <reference path="../pb_data/types.d.ts" />
 
 $app.rootCmd.addCommand(new Command({
-  use: "reset_time_tables",
+  use: "resettimetables",
   run: () => {
     const years = $app.dao().findCollectionByNameOrId('years')
     $app.dao().deleteCollection(years)
