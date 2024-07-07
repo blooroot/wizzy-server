@@ -14,7 +14,7 @@ module.exports = (logRecord) => {
   const dateTime = logRecord.get('date_time')
   const time = dateTime.time()
   const year = time.year()
-  const month = parseInt(JSON.stringify(time.month()))
+  const month = parseInt(JSON.stringify(time.month())) - 1
   const day = time.day()
 
   updateTimeRow(
