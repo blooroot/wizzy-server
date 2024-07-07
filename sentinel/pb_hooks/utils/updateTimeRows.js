@@ -23,24 +23,24 @@ module.exports = (logRecord) => {
     'log', log
   )
 
-  // updateTimeRow(
-  //   'years', 
-  //   `${year}`, 
-  //   new Date(year, 0, 1), 
-  //   log
-  // )
+  updateTimeRow(
+    'years', 
+    `${year}`, 
+    new Date(year, 0, 1), 
+    log
+  )
 
-  // updateTimeRow(
-  //   'months', 
-  //   `${month}-${year}`, 
-  //   new Date(year, month, 1), 
-  //   log
-  // )
+  updateTimeRow(
+    'months', 
+    `${month}-${year}`, 
+    new Date(year, month, 1), 
+    log
+  )
 
-  // updateTimeRow(
-  //   'days', 
-  //   `${day}-${month}-${year}`, 
-  //   new Date(year, month, day), 
-  //   log
-  // )
+  updateTimeRow(
+    'days', 
+    `${day}-${month}-${year}`, 
+    new Date(year, month, day), 
+    log
+  )
 }
