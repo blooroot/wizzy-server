@@ -7,7 +7,12 @@ const updateTimeRows = (record) => {
   const month = datetime.month()
   const day = datetime.day()
 
-  const yearRecord = $app.dao().findRecordById('years', `${year}`)
+  try {
+    const yearRecord = $app.dao().findRecordById('years', `${year}`)
+  }
+  catch (e) {
+    console.log(e)
+  }
   // if (!yearRecord) {
   //   yearRecord = new Record(
   //     $app.dao().findCollectionByNameOrId('years'),
