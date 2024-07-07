@@ -9,5 +9,7 @@ $app.rootCmd.addCommand(new Command({
       robot: 'hwyhz71t37i4n3k',
     })
     $app.dao().saveRecord(newLog)
+    const updateTimeRows = require(`${__hooks}/utils/updateTimeRows`)
+    updateTimeRows(newLog)
   },
 }))
