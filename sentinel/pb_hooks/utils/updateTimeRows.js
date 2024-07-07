@@ -6,7 +6,9 @@ const updateTimeRows = (record) => {
   $app.logger().debug('record', 
     "temperature", temperature,
     "humidity", humidity,
-    "datetime", datetime
+    "year", datetime.year(),
+    "month", datetime.month(),
+    "day", datetime.day(),
   )
 
   // const year = datetime.getFullYear()
