@@ -31,143 +31,49 @@ $app.rootCmd.addCommand(new Command({
       }
     }
 
-    ['years', 'months', 'days'].forEach((e) => {
-      const collection = new Collection({
-        name: e,
-        type: 'base',
-        listRule: "",
-        viewRule: "",
-        createRule: "",
-        updateRule: "",
-        deleteRule: "",
-        // schema: [
-        //   { 
-        //     name: 'date_time',
-        //     type: 'datetime',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'total_logs',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'min_temperature',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'max_temperature',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'mean_temperature',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'min_humidity',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'max_humidity',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'mean_humidity',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'min_heat_index',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'max_heat_index',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'mean_heat_index',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'min_vpd',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'max_vpd',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }, 
-        //   { 
-        //     name: 'mean_vpd',
-        //     type: 'number',
-        //     required: true,
-        //     options: {}
-        //   }
-        // ],
-        indexes: [],
-        options: {},
-      })
+    // const levels = ['years', 'months', 'days']
 
-      collection.schema.addField(new SchemaField({
-        name: 'date_time',
-        type: 'datetime',
-        required: true,
-        options: {}
-      }))
+    // levels.forEach((e) => {
+    //   const collection = new Collection({
+    //     name: e,
+    //     type: 'base',
+    //     listRule: "",
+    //     viewRule: "",
+    //     createRule: "",
+    //     updateRule: "",
+    //     deleteRule: "",
+    //     indexes: [],
+    //     options: {},
+    //   })
 
-      collection.schema.addField(new SchemaField({
-        name: 'total_logs',
-        type: 'number',
-        required: true,
-        options: {}
-      }))
+    //   collection.schema.addField(new SchemaField({
+    //     name: 'date_time',
+    //     type: 'datetime',
+    //   }))
 
-      const variables = ['temperature', 'humidity', 'heat_index', 'vpd']
+    //   collection.schema.addField(new SchemaField({
+    //     name: 'total_logs',
+    //     type: 'number',
+    //   }))
 
-      variables.forEach(v => {
-        collection.schema.addField(new SchemaField({
-          name: `min_${v}`,
-          type: 'number',
-          required: true,
-          options: {}
-        }))
-        collection.schema.addField(new SchemaField({
-          name: `max_${v}`,
-          type: 'number',
-          required: true,
-          options: {}
-        }))
-        collection.schema.addField(new SchemaField({
-          name: `mean_${v}`,
-          type: 'number',
-          required: true,
-          options: {}
-        }))
-      })
+    //   const variables = ['temperature', 'humidity', 'heat_index', 'vpd']
 
-      $app.dao().saveCollection(collection)
-    })
+    //   variables.forEach(v => {
+    //     collection.schema.addField(new SchemaField({
+    //       name: `min_${v}`,
+    //       type: 'number',
+    //     }))
+    //     collection.schema.addField(new SchemaField({
+    //       name: `max_${v}`,
+    //       type: 'number',
+    //     }))
+    //     collection.schema.addField(new SchemaField({
+    //       name: `mean_${v}`,
+    //       type: 'number',
+    //     }))
+    //   })
+
+    //   $app.dao().saveCollection(collection)
+    // })
   },
 }))
