@@ -12,6 +12,6 @@ $app.rootCmd.addCommand(new Command({
     })
     $app.dao().saveRecord(newLog)
     const updateTimeRows = require(`${__hooks}/utils/updateTimeRows`)
-    updateTimeRows(newLog)
+    // updateTimeRows(newLog)
   },
 }))
