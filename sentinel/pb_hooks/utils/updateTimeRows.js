@@ -20,8 +20,8 @@ module.exports = (logRecord) => {
   $app.logger().debug('month',
     'month', month,
     'typeof month', typeof month,
-    'parseInt(month)', parseInt(month),
-    'month.toString()', month.toString(),
+    // 'parseInt(month)', parseInt(month),
+    // 'month.toString()', month.toString(),
     'JSON.stringify(month)', JSON.stringify(month),
   )
 
