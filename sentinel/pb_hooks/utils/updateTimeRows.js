@@ -20,6 +20,7 @@ module.exports = (logRecord) => {
   updateTimeRow(
     'years', 
     `${year}:${robot}`,
+    robot,
     new Date(year, 0, 1), 
     log
   )
@@ -27,6 +28,7 @@ module.exports = (logRecord) => {
   updateTimeRow(
     'months', 
     `${month}-${year}:${robot}`, 
+    robot,
     new Date(year, month, 1), 
     log
   )
@@ -34,6 +36,7 @@ module.exports = (logRecord) => {
   updateTimeRow(
     'days', 
     `${day}-${month}-${year}:${robot}`, 
+    robot,
     new Date(year, month, day), 
     log
   )

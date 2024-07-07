@@ -1,4 +1,4 @@
-module.exports = (collectionId, rowId, rowDate, log) => {
+module.exports = (collectionId, id, robot, date_time, log) => {
   const initStats = require(`${__hooks}/utils/initStats`)
   const updateStatsOf = require(`${__hooks}/utils/updateStatsOf`)
   let record
@@ -12,8 +12,9 @@ module.exports = (collectionId, rowId, rowDate, log) => {
     record = new Record(
       $app.dao().findCollectionByNameOrId(collectionId),
       {
-        id: rowId,
-        date_time: rowDate,
+        id,
+        robot,
+        date_time,
         ...initStats
       }
     )
