@@ -8,11 +8,11 @@ module.exports = (logRecord) => {
     vpd: logRecord.get('vpd'),
   }
   
-  const dateTime = logRecord.get('date_time').time()
-  
-  const year = dateTime.year()
-  const month = dateTime.month()
-  const day = dateTime.day()
+  const dateTime = logRecord.get('date_time')
+  const time = dateTime.time()
+  const year = time.year()
+  const month = time.month()
+  const day = time.day()
 
   updateTimeRow(
     'years', 
