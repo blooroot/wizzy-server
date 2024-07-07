@@ -1,3 +1,4 @@
-**/build/
-
+*.out
+sentinel/*
+!sentinel/pb_hooks
 
