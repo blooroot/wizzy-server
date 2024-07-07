@@ -11,31 +11,31 @@ const updateTimeRows = (record) => {
     const yearRecord = $app.dao().findRecordById('years', `${year}`)
   }
   catch (e) {
-    console.log(e.name)
-    //   yearRecord = new Record(
-    //     $app.dao().findCollectionByNameOrId('years'),
-    //     {
-    //       id: `${year}`,
-    //       total_logs: 0,
-    //       mean_temperature: 0,
-    //       mean_humidity: 0
-    //     }
-    //   )
-    //   $app.dao().saveRecord(yearRecord)
+    if (e.name !== 'GoError') {
+      throw e
+    }
+    yearRecord = new Record(
+      $app.dao().findCollectionByNameOrId('years'),
+      {
+        id: `${year}`,
+        total_logs: 0,
+        mean_temperature: 0,
+        mean_humidity: 0
+      }
+    )
+    $app.dao().saveRecord(yearRecord)
   }
-  // if (!yearRecord) {
-  // }
 
-  // const yearNewTotalLogs = yearRecord.get('total_logs') + 1
-  // yearRecord.set('total_logs',  
-  //   yearNewTotalLogs
-  // )
-  // yearRecord.set('mean_temperature',
-  //   (yearRecord.get('mean_temperature') + temperature) / yearNewTotalLogs
-  // )
-  // yearRecord.set('mean_humidity',
-  //   (yearRecord.get('mean_humidity') + humidity) / yearNewTotalLogs
-  // )
+  const yearNewTotalLogs = yearRecord.get('total_logs') + 1
+  yearRecord.set('total_logs',  
+    yearNewTotalLogs
+  )
+  yearRecord.set('mean_temperature',
+    (yearRecord.get('mean_temperature') + temperature) / yearNewTotalLogs
+  )
+  yearRecord.set('mean_humidity',
+    (yearRecord.get('mean_humidity') + humidity) / yearNewTotalLogs
+  )
 
   // const monthRecord = $app.dao().findRecordById('months', `${month}-${year}`)
   // if (!monthRecord) {
