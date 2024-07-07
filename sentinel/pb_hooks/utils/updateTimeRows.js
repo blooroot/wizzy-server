@@ -1,12 +1,12 @@
 const updateTimeRows = (record) => {
   const temperature = record.get('temperature')
   const humidity = record.get('humidity')
-  const datetime = record.get('datetime')
+  const datetime = record.get('datetime').time()
 
   $app.logger().debug('record', 
     "temperature", temperature,
     "humidity", humidity,
-    "datetime", Date.parse(datetime)
+    "datetime", datetime
   )
 
   // const year = datetime.getFullYear()
