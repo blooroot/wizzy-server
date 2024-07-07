@@ -11,19 +11,19 @@ const updateTimeRows = (record) => {
     const yearRecord = $app.dao().findRecordById('years', `${year}`)
   }
   catch (e) {
-    console.log(e)
+    console.log(e.name)
+    //   yearRecord = new Record(
+    //     $app.dao().findCollectionByNameOrId('years'),
+    //     {
+    //       id: `${year}`,
+    //       total_logs: 0,
+    //       mean_temperature: 0,
+    //       mean_humidity: 0
+    //     }
+    //   )
+    //   $app.dao().saveRecord(yearRecord)
   }
   // if (!yearRecord) {
-  //   yearRecord = new Record(
-  //     $app.dao().findCollectionByNameOrId('years'),
-  //     {
-  //       id: `${year}`,
-  //       total_logs: 0,
-  //       mean_temperature: 0,
-  //       mean_humidity: 0
-  //     }
-  //   )
-  //   $app.dao().saveRecord(yearRecord)
   // }
 
   // const yearNewTotalLogs = yearRecord.get('total_logs') + 1
