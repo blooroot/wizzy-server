@@ -17,6 +17,14 @@ module.exports = (logRecord) => {
   const month = time.month()
   const day = time.day()
 
+  $app.logger().debug('month',
+    'month', month,
+    'typeof month', typeof month,
+    'parseInt(month)', parseInt(month),
+    'month.toString()', month.toString(),
+    'JSON.stringify(month)', JSON.stringify(month),
+  )
+
   updateTimeRow(
     'years', 
     `${year}:${robot}`,
