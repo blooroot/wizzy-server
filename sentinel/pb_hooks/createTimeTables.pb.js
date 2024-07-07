@@ -19,6 +19,8 @@ $app.rootCmd.addCommand(new Command({
         options: {},
       })
 
+      $app.dao().saveCollection(collection)
+
       collection.schema.addField(new SchemaField({
         name: 'date_time',
         type: 'datetime',
