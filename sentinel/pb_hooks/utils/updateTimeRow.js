@@ -3,7 +3,7 @@ module.exports = (collectionId, id, robot, date_time, log) => {
   const updateStatsOf = require(`${__hooks}/utils/updateStatsOf`)
   let record
   try {
-    record = $app.dao().findRecordById(collectionId, rowId)
+    record = $app.dao().findRecordById(collectionId, id)
   }
   catch (e) {
     if (e.name !== 'GoError') {
