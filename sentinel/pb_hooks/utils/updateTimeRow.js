@@ -1,5 +1,6 @@
 module.exports = (collectionId, rowId, rowDate, log) => {
   const initStats = require(`${__hooks}/utils/initStats`)
+  const updateStatsOf = require(`${__hooks}/utils/updateStatsOf`)
   let record
   try {
     record = $app.dao().findRecordById(collectionId, rowId)
