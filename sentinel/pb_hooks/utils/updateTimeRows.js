@@ -10,36 +10,30 @@ module.exports = (logRecord) => {
     vpd: logRecord.get('vpd'),
   }
   
+  const robot = logRecord.get('robot')
   const dateTime = logRecord.get('date_time')
   const time = dateTime.time()
   const year = time.year()
   const month = time.month()
   const day = time.day()
 
-  $app.logger().debug('logRecord',
-    'day', day,
-    'month', month,
-    'year', year,
-    'log', log
-  )
-
   updateTimeRow(
     'years', 
-    `${year}`, 
+    `${year}:${robot}`,
     new Date(year, 0, 1), 
     log
   )
 
   updateTimeRow(
     'months', 
-    `${month}-${year}`, 
+    `${month}-${year}:${robot}`, 
     new Date(year, month, 1), 
     log
   )
 
   updateTimeRow(
     'days', 
-    `${day}-${month}-${year}`, 
+    `${day}-${month}-${year}:${robot}`, 
     new Date(year, month, day), 
     log
   )

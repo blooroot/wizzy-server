@@ -13,4 +13,5 @@ module.exports = (record, logStats) => {
       (record.get(`mean_${stat}`) + logStats[stat]) / newTotalLogs
     )
   })
+  $app.dao().saveRecord(record)
 }
