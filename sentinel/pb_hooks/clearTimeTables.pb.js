@@ -35,27 +35,99 @@ $app.rootCmd.addCommand(new Command({
       const collection = new Collection({
         name: e,
         type: 'base',
-        listRule: null,
-        viewRule: null,
-        createRule: null,
-        updateRule: null,
-        deleteRule: null,
+        listRule: "",
+        viewRule: "",
+        createRule: "",
+        updateRule: "",
+        deleteRule: "",
         schema: [
-          { name: 'date_time', type: 'datetime' },
-          { name: 'total_logs', type: 'number' },
-          { name: 'min_temperature', type: 'number' },
-          { name: 'max_temperature', type: 'number' },
-          { name: 'mean_temperature', type: 'number' },
-          { name: 'min_humidity', type: 'number' },
-          { name: 'max_humidity', type: 'number' },
-          { name: 'mean_humidity', type: 'number' },
-          { name: 'min_heat_index', type: 'number' },
-          { name: 'max_heat_index', type: 'number' },
-          { name: 'mean_heat_index', type: 'number' },
-          { name: 'min_vpd', type: 'number' },
-          { name: 'max_vpd', type: 'number' },
-          { name: 'mean_vpd', type: 'number' }
-        ]
+          { 
+            name: 'date_time',
+            type: 'datetime',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'total_logs',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'min_temperature',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'max_temperature',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'mean_temperature',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'min_humidity',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'max_humidity',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'mean_humidity',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'min_heat_index',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'max_heat_index',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'mean_heat_index',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'min_vpd',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'max_vpd',
+            type: 'number',
+            required: true,
+            options: {}
+          }, 
+          { 
+            name: 'mean_vpd',
+            type: 'number',
+            required: true,
+            options: {}
+          }
+        ],
+        indexes: [],
+        options: {},
       })
       $app.dao().saveCollection(collection)
     })
