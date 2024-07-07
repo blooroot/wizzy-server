@@ -1,5 +1,5 @@
 $app.rootCmd.addCommand(new Command({
-  use: "pushone",
+  use: "test_log",
   run: () => {
     const logs = $app.dao().findCollectionByNameOrId('time_logs')
     const newLog = new Record(logs, {
