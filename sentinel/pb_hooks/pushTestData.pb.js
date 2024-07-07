@@ -12,9 +12,9 @@ $app.rootCmd.addCommand(new Command({
     const hi = (T, HR) => -42.379 + 2.04901523*T + 10.14333127*HR - 0.22475541*T*HR - 0.00683783*T*T - 0.05481717*HR*HR + 0.00122874*T*T*HR + 0.00085282*T*HR*HR - 0.00000199*T*T*HR*HR
 
     const stride = 15
-    // let start = new Date(2023, 10, 22, 7, 0, 0).getTime()
-    let start = new Date(2024, 4, 6, 8, 0, 59).getTime()
-    const end = new Date(2024, 6, 6, 8, 0, 30).getTime()
+    let start = new Date(2023, 10, 22, 7, 0, 0).getTime()
+    // let start = new Date(2024, 4, 6, 8, 0, 59).getTime()
+    const end = new Date(2024, 6, 7, 8, 0, 30).getTime()
     
     const strideTime = stride * 60 * 1000
 
