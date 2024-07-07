@@ -10,7 +10,7 @@ module.exports = (record, logStats) => {
       Math.max(record.get(`max_${stat}`), logStats[stat])
     )
     record.set(`mean_${stat}`,
-      (record.get(`mean_${stat}`) + logStats[stat]) / newTotalLogs
+      (record.get(`mean_${stat}`) * (newTotalLogs - 1) + logStats[stat]) / newTotalLogs
     )
   })
   $app.dao().saveRecord(record)
