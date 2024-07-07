@@ -1,3 +1,5 @@
+/// <reference path="../../pb_data/types.d.ts" />
+
 module.exports = (logRecord) => {
   const updateTimeRow = require(`${__hooks}/utils/updateTimeRow`)
   
@@ -14,24 +16,31 @@ module.exports = (logRecord) => {
   const month = time.month()
   const day = time.day()
 
-  updateTimeRow(
-    'years', 
-    `${year}`, 
-    new Date(year, 0, 1), 
-    log
+  $app.logger().debug('logRecord',
+    'day', day,
+    'month', month,
+    'year', year,
+    'log', log
   )
 
-  updateTimeRow(
-    'months', 
-    `${month}-${year}`, 
-    new Date(year, month, 1), 
-    log
-  )
+  // updateTimeRow(
+  //   'years', 
+  //   `${year}`, 
+  //   new Date(year, 0, 1), 
+  //   log
+  // )
 
-  updateTimeRow(
-    'days', 
-    `${day}-${month}-${year}`, 
-    new Date(year, month, day), 
-    log
-  )
+  // updateTimeRow(
+  //   'months', 
+  //   `${month}-${year}`, 
+  //   new Date(year, month, 1), 
+  //   log
+  // )
+
+  // updateTimeRow(
+  //   'days', 
+  //   `${day}-${month}-${year}`, 
+  //   new Date(year, month, day), 
+  //   log
+  // )
 }
