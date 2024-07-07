@@ -1,0 +1,15 @@
+module.exports = {
+  total_logs: 0,
+  min_temperature: Infinity,
+  max_temperature: -Infinity,
+  mean_temperature: 0,
+  min_humidity: Infinity,
+  max_humidity: -Infinity,
+  mean_humidity: 0,
+  min_heat_index: Infinity,
+  max_heat_index: -Infinity,
+  mean_heat_index: 0,
+  min_vpd: Infinity,
+  max_vpd: -Infinity,
+  mean_vpd: 0,
+}

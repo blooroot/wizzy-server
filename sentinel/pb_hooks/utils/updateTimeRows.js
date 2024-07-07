@@ -1,91 +1,37 @@
-const updateTimeRows = (record) => {
-  const temperature = record.get('temperature')
-  const humidity = record.get('humidity')
-  const datetime = record.get('datetime').time()
-
-  const year = datetime.year()
-  const month = datetime.month()
-  const day = datetime.day()
-
-  try {
-    const yearRecord = $app.dao().findRecordById('years', `${year}`)
+module.exports = (logRecord) => {
+  const updateTimeRow = require(`${__hooks}/utils/updateTimeRow`)
+  
+  const log = {
+    temperature: logRecord.get('temperature'),
+    humidity: logRecord.get('humidity'),
+    heat_index: logRecord.get('heat_index'),
+    vpd: logRecord.get('vpd'),
   }
-  catch (e) {
-    if (e.name !== 'GoError') {
-      throw e
-    }
-    yearRecord = new Record(
-      $app.dao().findCollectionByNameOrId('years'),
-      {
-        id: `${year}`,
-        total_logs: 0,
-        mean_temperature: 0,
-        mean_humidity: 0
-      }
-    )
-    $app.dao().saveRecord(yearRecord)
-  }
+  
+  const dateTime = logRecord.get('date_time').time()
+  
+  const year = dateTime.year()
+  const month = dateTime.month()
+  const day = dateTime.day()
 
-  const yearNewTotalLogs = yearRecord.get('total_logs') + 1
-  yearRecord.set('total_logs',  
-    yearNewTotalLogs
-  )
-  yearRecord.set('mean_temperature',
-    (yearRecord.get('mean_temperature') + temperature) / yearNewTotalLogs
-  )
-  yearRecord.set('mean_humidity',
-    (yearRecord.get('mean_humidity') + humidity) / yearNewTotalLogs
+  updateTimeRow(
+    'years', 
+    `${year}`, 
+    new Date(year, 0, 1), 
+    log
   )
 
-  // const monthRecord = $app.dao().findRecordById('months', `${month}-${year}`)
-  // if (!monthRecord) {
-  //   monthRecord = new Record(
-  //     $app.dao().findCollectionByNameOrId('months'),
-  //     {
-  //       id: `${month}-${year}`,
-  //       total_logs: 0,
-  //       mean_temperature: 0,
-  //       mean_humidity: 0
-  //     }
-  //   )
-  //   $app.dao().saveRecord(monthRecord)
-  // }
+  updateTimeRow(
+    'months', 
+    `${month}-${year}`, 
+    new Date(year, month, 1), 
+    log
+  )
 
-  // const monthNewTotalLogs = monthRecord.get('total_logs') + 1
-  // monthRecord.set('total_logs',
-  //   monthNewTotalLogs
-  // )
-  // monthRecord.set('mean_temperature',
-  //   (monthRecord.get('mean_temperature') + temperature) / monthNewTotalLogs
-  // )
-  // monthRecord.set('mean_humidity',
-  //   (monthRecord.get('mean_humidity') + humidity) / monthNewTotalLogs
-  // )
-
-  // const dayRecord = $app.dao().findFirstRecordById('days', `${day}-${month}-${year}`)
-  // if (!dayRecord) {
-  //   dayRecord = new Record(
-  //     $app.dao().findCollectionByNameOrId('days'),
-  //     {
-  //       id: `${day}-${month}-${year}`,
-  //       total_logs: 0,
-  //       mean_temperature: 0,
-  //       mean_humidity: 0
-  //     }
-  //   )
-  //   $app.dao().saveRecord(dayRecord)
-  // }
-
-  // const dayNewTotalLogs = dayRecord.get('total_logs') + 1
-  // dayRecord.set('total_logs',
-  //   dayNewTotalLogs
-  // )
-  // dayRecord.set('mean_temperature',
-  //   (dayRecord.get('mean_temperature') + temperature) / dayNewTotalLogs
-  // )
-  // dayRecord.set('mean_humidity',
-  //   (dayRecord.get('mean_humidity') + humidity) / dayNewTotalLogs
-  // )
+  updateTimeRow(
+    'days', 
+    `${day}-${month}-${year}`, 
+    new Date(year, month, day), 
+    log
+  )
 }
-
-module.exports = updateTimeRows
