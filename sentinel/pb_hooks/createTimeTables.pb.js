@@ -14,6 +14,7 @@ $app.rootCmd.addCommand(new Command({
         createRule: "",
         updateRule: "",
         deleteRule: "",
+        schema: new Schema(),
         indexes: [],
         options: {},
       })
