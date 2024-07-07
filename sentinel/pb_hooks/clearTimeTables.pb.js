@@ -144,12 +144,9 @@ $app.rootCmd.addCommand(new Command({
         options: {}
       }))
 
-      [ 
-        'temperature',
-        'humidity',
-        'heat_index',
-        'vpd'
-      ].forEach(v => {
+      const variables = ['temperature', 'humidity', 'heat_index', 'vpd']
+
+      variables.forEach(v => {
         collection.schema.addField(new SchemaField({
           name: `min_${v}`,
           type: 'number',
