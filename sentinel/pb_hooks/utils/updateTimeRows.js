@@ -14,18 +14,8 @@ module.exports = (logRecord) => {
   const dateTime = logRecord.get('date_time')
   const time = dateTime.time()
   const year = time.year()
-  const month = time.month()
+  const month = parseInt(JSON.stringify(time.month()))
   const day = time.day()
-
-  $app.logger().debug('month',
-    // 'month', month,
-    // 'typeof month', typeof month,
-    // 'parseInt(month)', parseInt(month),
-    // 'month.toString()', month.toString(),
-    // 'JSON.stringify(month)', JSON.stringify(month),
-    'parseInt(JSON.stringify(month))', parseInt(JSON.stringify(month)),
-    'typeof parseInt(JSON.stringify(month))', typeof parseInt(JSON.stringify(month)),
-  )
 
   updateTimeRow(
     'years', 
