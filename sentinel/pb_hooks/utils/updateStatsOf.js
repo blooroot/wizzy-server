@@ -1,7 +1,7 @@
 module.exports = (record, logStats) => {
   const statsList = Object.keys(logStats)
   const newTotalLogs = record.get('total_logs') + 1
-  yearRecord.set('total_logs', newTotalLogs)
+  record.set('total_logs', newTotalLogs)
   statsList.forEach(stat => {
     record.set(`min_${stat}`, 
       Math.min(record.get(`min_${stat}`), logStats[stat])
