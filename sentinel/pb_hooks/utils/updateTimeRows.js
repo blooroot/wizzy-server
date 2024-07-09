@@ -3,7 +3,7 @@
 module.exports = (logRecord) => {
   const updateTimeRow = require(`${__hooks}/utils/updateTimeRow`)
   
-  const log = {
+  const logStats = {
     temperature: logRecord.get('temperature'),
     humidity: logRecord.get('humidity'),
     heat_index: logRecord.get('heat_index'),
@@ -11,8 +11,8 @@ module.exports = (logRecord) => {
   }
   
   const robot = logRecord.get('robot')
-  const dateTime = logRecord.get('date_time')
-  const time = dateTime.time()
+  const logDateTime = logRecord.get('date_time')
+  const time = logDateTime.time()
   const year = time.year()
   const month = parseInt(JSON.stringify(time.month())) - 1
   const day = time.day()
@@ -22,7 +22,8 @@ module.exports = (logRecord) => {
     `${year}:${robot}`,
     robot,
     new Date(year, 0, 1), 
-    log
+    logStats,
+    logDateTime,
   )
 
   updateTimeRow(
@@ -30,7 +31,8 @@ module.exports = (logRecord) => {
     `${month}-${year}:${robot}`, 
     robot,
     new Date(year, month, 1), 
-    log
+    logStats,
+    logDateTime,
   )
 
   updateTimeRow(
@@ -38,6 +40,7 @@ module.exports = (logRecord) => {
     `${day}-${month}-${year}:${robot}`, 
     robot,
     new Date(year, month, day), 
-    log
+    logStats,
+    logDateTime,
   )
 }
