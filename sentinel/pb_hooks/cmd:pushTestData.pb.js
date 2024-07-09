@@ -3,22 +3,23 @@ $app.rootCmd.addCommand(new Command({
   run: () => {
     const updateTimeRows = require(`${__hooks}/utils/updateTimeRows`)
     const logs = $app.dao().findCollectionByNameOrId('time_logs')
-
+    
     const curve = (t, smear, phase) => Math.pow(1 + 0.00001*smear, -1*((t - phase)**2))
     const rand = (min, max) => min + Math.random() * (max - min)
-
+    
     const es = (T) => 0.61078 * Math.exp((17.269 * T) / (T + 237.3))
     const vpd = (T, HR) => es(T) * (1 - HR/100)
     const hi = (T, HR) => -42.379 + 2.04901523*T + 10.14333127*HR - 0.22475541*T*HR - 0.00683783*T*T - 0.05481717*HR*HR + 0.00122874*T*T*HR + 0.00085282*T*HR*HR - 0.00000199*T*T*HR*HR
 
     const stride = 15
-    // let start = new Date(2023, 10, 22, 7, 0, 0).getTime()
-    let start = new Date(2024, 6, 8, 0, 0, 0).getTime()
-    const end = new Date(2024, 6, 8, 23, 59, 59).getTime()
-    
     const strideTime = stride * 60 * 1000
 
-    let t = 0
+    let startDate = new Date(2024, 6, 8, 0, 0, 0)
+    const endDate = new Date(2024, 6, 8, 23, 59, 59)
+    let start = startDate.getTime()
+    const end = endDate.getTime()
+    
+    let t = startDate.getHours() * 60 + startDate.getMinutes()
     let phase = rand(780, 870)
     let smear = rand(2, 3)
 
