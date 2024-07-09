@@ -14,7 +14,7 @@ module.exports = (timeCollectionId, id, robot, timeRowDateTime, logStats, logDat
       {
         id,
         robot,
-        timeRowDateTime,
+        date_time: timeRowDateTime,
         ...initStats
       }
     )
