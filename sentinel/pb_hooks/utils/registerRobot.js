@@ -6,5 +6,5 @@ module.exports = () => {
     { alias: 'Robot ' + allRobots.length }
   )
   $app.dao().saveRecord(newRobot)
-  return c.json(200, { robot_id: newRobot.id })
+  return newRobot.id
 }

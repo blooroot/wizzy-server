@@ -5,14 +5,17 @@ routerAdd("GET", "/driver", (c) => {
   const registerRobot = require(`${__hooks}/utils/registerRobot`)
   
   if (!robotId) {
-    registerRobot()
+    const robot_id = registerRobot()
+    return c.json(200, { robot_id })
   }
 
-  const robot = $app.dao().findRecordById('robots', robotId)
-  
+  $app.dao().findRecordById('robots', robotId)
+
   const route = $app.dao().findRecordsByFilter(
     'routes', `robot = "${robotId}"`
   )
+
+  
 
   // const { x, y, dx, dy }
 })
