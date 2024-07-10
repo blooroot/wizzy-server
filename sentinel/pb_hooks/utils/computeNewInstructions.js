@@ -44,5 +44,8 @@ module.exports = (route) => {
   }
   
   route.set('state', JSON.stringify({ x: x + dx, y, dx }))
-  return [{ type: 'move', value: stride }]
+  return [
+    { type: 'measure', value: [x + dx, y] },
+    { type: 'move', value: stride }
+  ]
 }
