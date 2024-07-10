@@ -4,14 +4,14 @@ routerAdd("GET", "/driver", (c) => {
   let robotId = c.queryParam('robot')
   if (!robotId) {
     const robotsCollection = $app.dao().findCollectionByNameOrId('robots')
-    const robots = $app.dao().findRecordsByFilter('robots', '')
+    const allRobots = $app.dao().db().select('*').from(robotsCollection)
     // const newRobot = new Record(robotsCollection, {
-    //   alias: 'Robot ' + robots.length,
+    //   alias: 'Robot ' + allRobots.length,
     // })
     // $app.dao().saveRecord(newRobot)
     // robotId = newRobot.id
     $app.logger().debug('data', 
-      'robots', robots,
+      'allRobots', allRobots,
     )
   }
   // const { x, y, dx, dy }
