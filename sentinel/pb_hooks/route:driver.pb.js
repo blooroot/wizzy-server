@@ -17,7 +17,7 @@ routerAdd("GET", "/driver", (c) => {
   )
 
   if (!route || !route.get('active') ) {
-    return c.json(200, { 
+    return c.json(200, {
       instructions: [
         { type: 'sleep', value: 1000 }
       ] 
