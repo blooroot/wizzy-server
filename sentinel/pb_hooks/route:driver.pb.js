@@ -10,7 +10,7 @@ routerAdd("GET", "/driver", (c) => {
     // })
     // $app.dao().saveRecord(newRobot)
     // robotId = newRobot.id
-    return c.json(200, allRobots)
+    return c.json(200, JSON.stringify(allRobots))
   }
   // const { x, y, dx, dy }
 })
