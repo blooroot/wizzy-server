@@ -14,8 +14,8 @@ $app.rootCmd.addCommand(new Command({
     const stride = 15
     const strideTime = stride * 60 * 1000
 
-    let startDate = new Date(2024, 6, 8, 0, 0, 0)
-    const endDate = new Date(2024, 6, 8, 23, 59, 59)
+    let startDate = new Date(2023, 9, 21, 0, 0, 0)
+    const endDate = new Date(2024, 6, 9, 23, 59, 59)
     let start = startDate.getTime()
     const end = endDate.getTime()
     
