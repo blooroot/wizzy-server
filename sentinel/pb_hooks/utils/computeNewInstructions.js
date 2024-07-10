@@ -1,5 +1,5 @@
 module.exports = (route) => {
   const state = route.get('state')
-
-  return (state)
+  const { x, y, dx, dy } = JSON.parse(state)
+  return ({ x, y, dx, dy })
 }
