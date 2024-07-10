@@ -15,7 +15,9 @@ routerAdd("GET", "/driver", (c) => {
     'routes', `robot = "${robotId}"`
   )
 
+  $app.logger().debug('debug',
+    'route', route
+  )
   
-
   // const { x, y, dx, dy }
 })
